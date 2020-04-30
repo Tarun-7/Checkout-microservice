@@ -10,7 +10,6 @@ public class StrategyContext {
         }
 
         public double executeStrategy(double carttoal){
-
             return strategy.setShippingcharges(carttoal);
         }
     }

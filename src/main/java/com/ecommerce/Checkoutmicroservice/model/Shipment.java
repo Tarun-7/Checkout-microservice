@@ -9,7 +9,7 @@ public class Shipment {
 
     @Id
     private String shipId;
-    private int charges;
+    private double charges;
     private String time;
     @OneToOne
     private Orders orderId;
@@ -19,7 +19,7 @@ public class Shipment {
     }
 
 
-    public Shipment(String shipId, int charges, String time, Orders orderId) {
+    public Shipment(String shipId, double charges, String time, Orders orderId) {
         this.shipId = shipId;
         this.charges = charges;
         this.time = time;
@@ -36,14 +36,14 @@ public class Shipment {
     }
 
 
-    public int getCharges() {
+    public double getCharges() {
 
         return charges;
     }
 
 
 
-    public void setCharges(int charges) {
+    public void setCharges(double charges) {
 
         this.charges = charges;
     }

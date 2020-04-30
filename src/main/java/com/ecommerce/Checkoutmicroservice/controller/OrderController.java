@@ -18,7 +18,7 @@ public class OrderController {
     OrderService orderService;
 
     // Lists out all the orders in the Database
-    @RequestMapping("/orders")
+    @RequestMapping("/Allorders")
     public List<Orders> getAllOrders() {
 
         return orderService.findAllOrders();

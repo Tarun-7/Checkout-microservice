@@ -7,6 +7,10 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Orders {
 
+    public String SUCCESS = "SUCCESS";
+    public String FAILED = "FAILED";
+    public String PROCESSING = "PROCESSING";
+
     @Id
     private String orderId;
     private Integer userId;

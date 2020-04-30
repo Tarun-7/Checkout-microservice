@@ -1,5 +1,6 @@
 package com.ecommerce.Checkoutmicroservice.controller;
 
+import com.ecommerce.Checkoutmicroservice.model.Cart;
 import com.ecommerce.Checkoutmicroservice.model.Orders;
 import com.ecommerce.Checkoutmicroservice.model.Shipment;
 import com.ecommerce.Checkoutmicroservice.service.CheckoutService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -17,13 +19,33 @@ import java.util.List;
 public class CheckoutController {
 
     @Autowired
-    CheckoutService checkoutService;
+    private CheckoutService checkoutService;
 
-    // ADDS new Shipment request To the Database
+    @Autowired
+    private RestTemplate restTemplate;
+
+    // Creating a new order
+    @RequestMapping(method = RequestMethod.POST, value = "/CreateOrder")
+    public void createOrder( ) {
+        Cart cart = new Cart();
+        cart.setQuantity(2);
+        cart.setCartID(999);
+        cart.setProductId(163);
+        cart.setUserId(777);
+        cart.setTotalCost(2000);
+        checkoutService.createNewOrder(cart);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/CreateOrder", produces = "application/json")
+    public Orders getlastOrder( ) {
+        return checkoutService.getlastOrder();
+    }
+
+        // ADDS new Shipment request To the Database
     @RequestMapping(method = RequestMethod.POST, value = "/ShipmentCharges")
-    public void getshipment(@RequestBody Shipment shipmentItem) { // Should be changed to cart object while linking
-        int cartTotal = 1000;
-        checkoutService.addShipment(shipmentItem, cartTotal);    // remove shipment item in arguments
+    public void getshipment(/*@RequestBody Shipment shipmentItem*/) {
+        Orders orders = restTemplate.getForObject("http://order-service/checkout-microservice/CreateOrder", Orders.class);
+        checkoutService.addShipment(orders);
 
     }
 
