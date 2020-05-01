@@ -1,3 +1,7 @@
+/**
+ @author  Tarun
+ @version  1.3
+ */
 package com.ecommerce.Checkoutmicroservice.test;
 
 import com.ecommerce.Checkoutmicroservice.model.Orders;
@@ -20,14 +24,17 @@ public class Orderstatustest {
     @Test
     public void testorderstatus() {
 
-        String orderexpected = "SUCCESS";
 
+        // Creating a new Order Request
         Orders orderactual = new Orders("123",123,"details","12.3","processing", 20.3);
         //Optional<Orders> orderactual = orderService.findById("123");
         System.out.println(orderactual.getStatus());
+        String orderexpected = Orders.SUCCESS;
+
+        //Updating the order status
         orderService.updateOrder(orderactual);
 
+        //Verifying whether Order Status got updated
         Assert.assertEquals(orderexpected , orderactual.getStatus());
-        //System.out.println("Test run Successful");
     }
 }

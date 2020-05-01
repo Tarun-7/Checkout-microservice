@@ -1,3 +1,7 @@
+/**
+ @author   Prashant, Tauseef, Tarun, Rainy
+ @version  1.5
+ */
 package com.ecommerce.Checkoutmicroservice.model;
 
 import javax.persistence.Entity;
@@ -59,10 +63,12 @@ public class Shipment {
     }
 
     public Orders getOrderId() {
+
         return orderId;
     }
 
     public void setOrderId(Orders orderId) {
+
         this.orderId = orderId;
     }
 

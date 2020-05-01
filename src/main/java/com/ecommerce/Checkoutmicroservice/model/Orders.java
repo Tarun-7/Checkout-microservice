@@ -1,3 +1,7 @@
+/**
+ @author   Prashant, Tauseef, Tarun ,Rainy
+ @version  1.5
+ */
 package com.ecommerce.Checkoutmicroservice.model;
 
 import javax.persistence.Entity;
@@ -7,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Orders {
 
-    public String SUCCESS = "SUCCESS";
+    public static String SUCCESS = "SUCCESS";
     public String FAILED = "FAILED";
     public String PROCESSING = "PROCESSING";
 
@@ -33,10 +37,12 @@ public class Orders {
 
 
     public String getOrderId() {
+
         return orderId;
     }
 
     public void setOrderId(String orderId) {
+
         this.orderId = orderId;
     }
 
@@ -45,38 +51,47 @@ public class Orders {
     }
 
     public void setUserId(Integer userId) {
+
         this.userId = userId;
     }
 
     public String getOrderDetails() {
+
         return orderDetails;
     }
 
     public void setOrderDetails(String orderDetails) {
+
         this.orderDetails = orderDetails;
     }
 
     public String getOrderTime() {
+
         return orderTime;
     }
 
     public void setOrderTime(String orderTime) {
+
         this.orderTime = orderTime;
     }
 
     public String getStatus() {
+
         return status;
     }
 
     public void setStatus(String status) {
+
         this.status = status;
     }
 
     public Double getOrderTotal() {
+
         return orderTotal;
     }
 
     public void setOrderTotal(Double orderTotal) {
+
         this.orderTotal = orderTotal;
     }
 

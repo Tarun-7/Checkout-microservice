@@ -1,3 +1,7 @@
+/**
+ @author   Prashant, Tauseef, Tarun Rainy
+ @version  1.5
+ */
 package com.ecommerce.Checkoutmicroservice.controller;
 
 
@@ -26,14 +30,14 @@ public class OrderController {
 
     // Gets Order by 'id' passed
     @RequestMapping("/orders/{id}")
-    public Optional<Orders> getOrderDetails(@PathVariable String id) {
+    public Optional<Orders> getOrderbyId(@PathVariable String id) {
 
         return orderService.findById(id);
     }
 
     // Gets Orders Specific to User
     @RequestMapping("/Userorders/{id}")
-    public List<Orders> getUserOrderDetails(@PathVariable int id) {
+    public List<Orders> getOrderbyUserId(@PathVariable int id) {
 
         return orderService.findUserIdOrders(id);
     }

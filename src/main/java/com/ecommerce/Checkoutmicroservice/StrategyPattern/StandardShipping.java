@@ -1,3 +1,7 @@
+/**
+ @author  Tarun
+ @version  1.3
+ */
 package com.ecommerce.Checkoutmicroservice.StrategyPattern;
 
 public class StandardShipping implements Strategy {
@@ -7,5 +11,4 @@ public class StandardShipping implements Strategy {
         return carttotal * 0.05 ;
 
     }
-
 }
